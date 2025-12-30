@@ -8,6 +8,46 @@ This repository contains homework assignments and the term project for **Machine
 
 ---
 
+##Project — Uncertainty-Aware Predictive Maintenance
+
+**Title:** Uncertainty-Aware Reinforcement Learning for Predictive Maintenance of Turbofan Engines  
+
+This project proposes an uncertainty-aware decision-making framework for predictive maintenance of turbofan engines by combining **Bayesian deep learning** with **reinforcement learning**.
+
+A Long Short-Term Memory (LSTM) network with **Monte Carlo Dropout** is used to estimate both the **Remaining Useful Life (RUL)** and its **predictive uncertainty** from multivariate engine sensor data. Instead of treating RUL predictions as exact values, uncertainty is explicitly incorporated into the control loop.
+
+The predicted mean RUL and uncertainty are transformed into a **conservative health indicator**, which is discretized into interpretable health states. A **tabular Q-learning agent** then learns an optimal maintenance policy that dynamically balances uptime rewards, maintenance costs, and catastrophic failure penalties.
+
+The framework is validated on the **NASA C-MAPSS FD001 dataset** and compared against a fixed-threshold baseline strategy. Results show that the uncertainty-aware agent consistently avoids late interventions while remaining less conservative than static rule-based policies, leading to improved economic performance.
+
+### Key Components
+- Bayesian LSTM with Monte Carlo Dropout for probabilistic RUL estimation  
+- Model-driven discrete RL state space based on uncertainty-penalized RUL  
+- Tabular Q-learning for interpretable and stable policy learning  
+- Economic evaluation against fixed-threshold maintenance strategies  
+
+### Representative Results
+
+<p align="center">
+  <img src="images/lstm_pred.png" width="650">
+</p>
+
+<p align="center">
+  <img src="images/agent_learning_curve.png" width="650">
+</p>
+
+<p align="center">
+  <img src="images/decision_boundary.png" width="650">
+</p>
+
+<p align="center">
+  <img src="images/economic_cumulative_advantage.png" width="650">
+</p>
+
+The results demonstrate that incorporating prediction uncertainty into reinforcement learning enables **safer, more cost-effective, and interpretable maintenance decisions** for safety-critical mechanical systems.
+
+---
+
 ## Homework 1 — Regression & Feature Engineering
 
 Homework 1 focuses on regression methods and feature engineering using materials science datasets.  
@@ -28,18 +68,5 @@ The assignment also includes an image classification task on crystal structure i
 Due to the very large size of the original image dataset, only a limited subset of dominant symmetry classes was selected to keep the experiment computationally feasible.
 
 ![HW2 Results](images/hw2.png)
-
----
-
-## Term Project — Uncertainty-Aware Predictive Maintenance
-
-**Title:** Uncertainty-Aware Reinforcement Learning for Predictive Maintenance of Turbofan Engines
-
-This project develops a data-driven framework that combines Remaining Useful Life (RUL) prediction with reinforcement learning for adaptive maintenance scheduling.  
-An LSTM model estimates both RUL and its uncertainty, which is then used by a risk-sensitive reinforcement learning agent to decide maintenance actions.
-
-The approach is first validated on the NASA C-MAPSS FD001 dataset and later extended to the more realistic Aircraft Engine Run-to-Failure dataset (2021).
-
-![Project Proposal Pipeline](images/proposal.png)
 
 ---
