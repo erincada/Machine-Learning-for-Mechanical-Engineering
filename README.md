@@ -41,7 +41,7 @@ The framework is validated on the **NASA C-MAPSS FD001 dataset** and compared ag
 </p>
 
 <p align="center">
-  <img src="images/economic_cummulative_advantage.png" width="650">
+  <img src="images/economic_cummilative_advantage.png" width="650">
 </p>
 
 The results demonstrate that incorporating prediction uncertainty into reinforcement learning enables **safer, more cost-effective, and interpretable maintenance decisions** for safety-critical mechanical systems.
